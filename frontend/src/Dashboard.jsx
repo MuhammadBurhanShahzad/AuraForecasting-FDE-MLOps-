@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 import DataLab from './DataLab';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = ''; // Leave empty for same-origin proxy
 
 const Dashboard = ({ defaultIndustry = 'retail', onBackToHome }) => {
   const [industry, setIndustry] = useState(defaultIndustry);
@@ -61,10 +61,11 @@ const Dashboard = ({ defaultIndustry = 'retail', onBackToHome }) => {
     fetchData(industry, businessId);
   }, [industry, businessId]);
 
-  const handleUploadSuccess = (newBusinessId) => {
+  const handleUploadSuccess = (newBusinessId, newIndustry) => {
     setBusinessId(newBusinessId);
+    setIndustry(newIndustry);
     setShowDataLab(false);
-    fetchData(industry, newBusinessId);
+    fetchData(newIndustry, newBusinessId);
   };
 
   if (showDataLab) {

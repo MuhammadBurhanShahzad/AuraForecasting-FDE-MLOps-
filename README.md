@@ -1,61 +1,51 @@
-# AuraForecasting: The Future of Business Intelligence
+# AuraForecasting: AI Business Intelligence
 
-**Predictive Intelligence Suite for High-Value Assets and Enterprise Growth.**
+**AuraForecasting** is a premium, all-in-one AI intelligence suite designed to help business owners predict future trends, manage assets, and optimize sales using the power of Prophet AI.
 
 ---
 
-## 🌟 Vision
-> "Our vision is to democratize advanced data intelligence for every business owner, from local shops to global asset firms. Aura is the heartbeat of future-ready business."  
+## 🌟 Product Vision
+> "Our vision is to democratize advanced data intelligence for every business owner. Aura is the heartbeat of future-ready business."
 > — **Muhammad Burhan Shahzad**, Founder & CEO
 
 ---
 
-## 🛠️ The Aura Suite
-AuraForecasting (Aura-Pro) is a professional, containerized forecasting ecosystem designed to remove guesswork from business management.
-
-### **Core Modules**
-1.  **Aura Brain (ML Service):** Powered by Meta's Prophet, it analyzes trends, seasonality, and holidays with 94%+ confidence.
-2.  **Aura Manager (Backend):** A high-performance Flask API orchestrating multi-tenant data flows and secure AI processing.
-3.  **Aura Interface (Dashboard):** A premium React application (Vite + Tailwind CSS + Recharts) for high-impact data visualization.
-4.  **Aura Data Lab:** A secure ingestion suite allowing users to upload their own business data (CSV/Manual) for personalized AI modeling.
+## 📸 Product Preview
+*(Paste your application screenshots here)*
 
 ---
 
-## ⚙️ Professional Stack
-- **Frontend:** React, Tailwind CSS, Lucide-React, Recharts.
-- **Backend:** Python, Flask, SQLAlchemy, Gunicorn.
-- **AI/ML:** Prophet (Meta), Pandas, NumPy.
-- **Database:** PostgreSQL.
-- **Infrastructure:** Docker, Docker Compose (Kubernetes support ready).
-
----
-
-## 🚀 One-Click Deployment
-AuraForecasting is fully containerized. To launch the entire suite:
+## 🚀 Get Started in 60 Seconds
+AuraForecasting is fully containerized. You don't need to install Python, Node.js, or manage databases. Just run one command:
 
 ```bash
-docker-compose up --build
+docker run -p 80:80 burhan107/aura-pro:latest
 ```
 
-Access the dashboard at: `http://localhost`
+Once running, simply open your browser to **[http://localhost](http://localhost)**.
 
 ---
 
-## 📁 Repository Structure
-```text
-/
-├── backend/            # Flask API & SQLAlchemy Models
-├── frontend/           # React Dashboard & Landing Page
-├── ml-service/         # Prophet Forecasting Service
-├── db/                 # PostgreSQL Initialization
-└── docker-compose.yml  # Orchestration
-```
+## 🛠️ How It Works
+1.  **Import:** Use the "Aura Data Lab" to upload your business CSV.
+2.  **Analyze:** Aura automatically categorizes your business as **Retail**, **Automotive**, or **Asset Management**.
+3.  **Forecast:** Click "Trigger Aura Forecast" to generate a 30-day AI projection.
+4.  **Decide:** Read the "Neural Insights" to understand your next business move.
 
 ---
 
-## 👤 Author
+## 📁 Repository Contents
+- **Aura Monolith:** A single production-ready image containing:
+    - **Frontend:** React Dashboard (Nginx)
+    - **Backend:** Flask API (Gunicorn)
+    - **ML Engine:** Meta Prophet
+    - **Database:** SQLite (Embedded)
+
+---
+
+## 👤 Founder
 **Muhammad Burhan Shahzad**  
 Founder & CEO, AuraForecasting Intelligence
 
 ---
-© 2026 AuraForecasting Suite. All rights reserved.
+*© 2026 AuraForecasting. All rights reserved.*

@@ -28,28 +28,33 @@ def get_forecast():
     data = ForecastData.query.filter_by(industry=industry, business_id=business_id).order_by(ForecastData.ds).all()
     return jsonify([d.to_dict() for d in data])
 
+import traceback
+
 @app.route('/data/upload', methods=['POST'])
 def upload_data():
-    payload = request.json
-    if not payload or 'data' not in payload:
-        return jsonify({"error": "No data provided"}), 400
-    
-    industry = payload.get('industry', 'retail')
-    business_id = payload.get('business_id', 'demo')
-    
-    # Optional: Clear existing data for this business/industry before upload if requested
-    if payload.get('clear_existing'):
-        HistoricalData.query.filter_by(industry=industry, business_id=business_id).delete()
-        ForecastData.query.filter_by(industry=industry, business_id=business_id).delete()
+    try:
+        payload = request.json
+        if not payload or 'data' not in payload:
+            return jsonify({"error": "No data provided"}), 400
+        
+        industry = payload.get('industry', 'retail')
+        business_id = payload.get('business_id', 'demo')
+        
+        if payload.get('clear_existing'):
+            HistoricalData.query.filter_by(industry=industry, business_id=business_id).delete()
+            ForecastData.query.filter_by(industry=industry, business_id=business_id).delete()
 
-    for item in payload['data']:
-        ds = datetime.fromisoformat(item['ds'])
-        y = item['y']
-        new_entry = HistoricalData(ds=ds, y=y, industry=industry, business_id=business_id)
-        db.session.add(new_entry)
-    
-    db.session.commit()
-    return jsonify({"message": f"Successfully uploaded {len(payload['data'])} records for {business_id} ({industry})"}), 201
+        for item in payload['data']:
+            ds = datetime.fromisoformat(item['ds'])
+            y = item['y']
+            new_entry = HistoricalData(ds=ds, y=y, industry=industry, business_id=business_id)
+            db.session.add(new_entry)
+        
+        db.session.commit()
+        return jsonify({"message": f"Successfully uploaded {len(payload['data'])} records"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e), "traceback": traceback.format_exc()}), 500
 
 @app.route('/data/trigger-forecast', methods=['POST'])
 def trigger_forecast():
