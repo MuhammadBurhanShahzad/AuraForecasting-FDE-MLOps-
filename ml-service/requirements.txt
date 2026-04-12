@@ -1,0 +1,6 @@
+flask
+prophet
+pandas
+numpy
+flask-cors
+python-dotenv
