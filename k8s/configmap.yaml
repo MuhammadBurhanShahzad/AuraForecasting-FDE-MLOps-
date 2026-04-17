@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aura-config
+  namespace: aura-forecasting
+data:
+  # Flask/Backend configuration
+  FLASK_ENV: "production"
+  FLASK_APP: "app.py"
+
+  # ML Service runs on localhost inside the same container (monolith)
+  ML_SERVICE_URL: "http://localhost:5001"
+
+  # Application settings
+  LOG_LEVEL: "INFO"
+  APP_NAME: "AuraForecasting"

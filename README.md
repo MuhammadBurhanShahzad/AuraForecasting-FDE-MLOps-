@@ -1,49 +1,66 @@
-# AuraForecasting: AI Business Intelligence
+# AuraForecasting: The Future of Business Intelligence
 
-**AuraForecasting** is a premium, all-in-one AI intelligence suite designed to help business owners predict future trends, manage assets, and optimize sales using the power of Prophet AI.
+**Predictive Intelligence Suite for High-Value Assets and Enterprise Growth.**
 
 ---
 
-## 🌟 Product Vision
+## 🌟 Vision
 > "Our vision is to democratize advanced data intelligence for every business owner. Aura is the heartbeat of future-ready business."
 > — **Muhammad Burhan Shahzad**, Founder & CEO
 
 ---
 
 ## 📸 Product Preview
-*(Paste your application screenshots here)*
+*(Add your screenshots to the `/images` folder and update the paths below)*
+![Dashboard](images/dashboard.png)
+
+---
+
+## 🏗️ Project Journey & Roadmap
+This project represents a comprehensive MLOps lifecycle, transforming a local AI prototype into a professional, containerized product.
+
+### ✅ Completed Phases
+1.  **Phase 1: Architecture Design**
+    - Designed a micro-services architecture to isolate AI logic from business operations.
+2.  **Phase 2: Core Development**
+    - Built a robust **Flask API** (Backend), an optimized **Meta Prophet** engine (ML Service), and a premium **React Dashboard** (Frontend).
+    - Implemented a "Data Lab" with auto-industry detection and CSV processing.
+3.  **Phase 3: Containerization**
+    - Developed a "Super-Dockerfile" monolith approach for one-click deployment.
+    - Optimized the stack with Nginx, Gunicorn, and Supervisord.
+    - Pushed production-ready images to **Docker Hub**.
+4.  **Phase 4: Kubernetes Deployment**
+    - Successfully scaled the product using Minikube/Kubernetes.
+    - Implemented microservices orchestration and service discovery.
+
+### 🚧 Future Phases (Roadmap)
+- **Phase 5: Monitoring Setup (Starting Tomorrow)**
+    - Implementing Prometheus and Grafana for real-time health observability of the AI forecasting engine.
+- **Phase 6: Testing & Demo**
+    - Implementing end-to-end integration testing and user documentation.
 
 ---
 
 ## 🚀 Get Started in 60 Seconds
-AuraForecasting is fully containerized. You don't need to install Python, Node.js, or manage databases. Just run one command:
+AuraForecasting is fully containerized. No manual dependencies required.
 
 ```bash
 docker run -p 80:80 burhan107/aura-pro:latest
 ```
-
-Once running, simply open your browser to **[http://localhost](http://localhost)**.
-
----
-
-## 🛠️ How It Works
-1.  **Import:** Use the "Aura Data Lab" to upload your business CSV.
-2.  **Analyze:** Aura automatically categorizes your business as **Retail**, **Automotive**, or **Asset Management**.
-3.  **Forecast:** Click "Trigger Aura Forecast" to generate a 30-day AI projection.
-4.  **Decide:** Read the "Neural Insights" to understand your next business move.
+Access the dashboard at: **[http://localhost](http://localhost)**
 
 ---
 
-## 📁 Repository Contents
-- **Aura Monolith:** A single production-ready image containing:
-    - **Frontend:** React Dashboard (Nginx)
-    - **Backend:** Flask API (Gunicorn)
-    - **ML Engine:** Meta Prophet
-    - **Database:** SQLite (Embedded)
+## 🛠️ Technology Stack
+- **Frontend:** React, Tailwind CSS, Recharts
+- **Backend:** Python, Flask, Gunicorn
+- **AI/ML:** Meta Prophet, Pandas, NumPy
+- **Infrastructure:** Docker, Nginx, Supervisord
+- **Database:** SQLite (Embedded for portability)
 
 ---
 
-## 👤 Founder
+## 👤 Author
 **Muhammad Burhan Shahzad**  
 Founder & CEO, AuraForecasting Intelligence
 
