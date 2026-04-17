@@ -11,10 +11,26 @@
 ---
 
 ## 📸 Product Preview
-*(Add your screenshots to the `/images` folder and update the paths below)*
-![Dashboard](images/dashboard.png)
 
----
+<table border="0">
+  <tr>
+    <td><img src="p1.png" width="100%" alt="Aura Dashboard"></td>
+    <td><img src="p2.png" width="100%" alt="Data Lab Interface"></td>
+  </tr>
+  <tr>
+    <td><img src="p3.png" width="100%" alt="ML Forecasting Engine"></td>
+    <td><img src="p4.png" width="100%" alt="Industry Analytics"></td>
+  </tr>
+  <tr>
+    <td><img src="p5.png" width="100%" alt="Prometheus Metrics"></td>
+    <td><img src="p6.png" width="100%" alt="Grafana Stunning Dashboard"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="p7.png" width="60%" alt="Kubernetes Deployment Success"></td>
+  </tr>
+</table>
+
+------
 
 ## 🏗️ Project Journey & Roadmap
 This project represents a comprehensive MLOps lifecycle, transforming a local AI prototype into a professional, containerized product.
