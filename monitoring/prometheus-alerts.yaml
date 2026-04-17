@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-alerts
+  namespace: monitoring
+  labels:
+    app: prometheus
+data:
+  alerts.yml: |
+    groups:
+      - name: aura-forecasting-alerts
+        interval: 30s
+        rules:
+          # Pod down alert
+          - alert: AuraPodDown
+            expr: up{namespace="aura-forecasting"} == 0
+            for: 1m
+            labels:
+              severity: critical
+            annotations:
+              summary: "AuraForecasting pod is down"
+              description: "Pod {{ $labels.pod }} in namespace {{ $labels.namespace }} has been down for more than 1 minute."
+
+          # High memory usage alert
+          - alert: AuraHighMemoryUsage
+            expr: |
+              (container_memory_usage_bytes{namespace="aura-forecasting"} /
+              container_spec_memory_limit_bytes{namespace="aura-forecasting"}) * 100 > 85
+            for: 5m
+            labels:
+              severity: warning
+            annotations:
+              summary: "High memory usage detected"
+              description: "Memory usage is above 85% for pod {{ $labels.pod }}"
+
+          # High CPU usage alert
+          - alert: AuraHighCPUUsage
+            expr: |
+              rate(container_cpu_usage_seconds_total{namespace="aura-forecasting"}[5m]) * 100 > 80
+            for: 5m
+            labels:
+              severity: warning
+            annotations:
+              summary: "High CPU usage detected"
+              description: "CPU usage is above 80% for pod {{ $labels.pod }}"
+
+          # Pod restart alert
+          - alert: AuraPodRestart
+            expr: |
+              increase(kube_pod_container_status_restarts_total{namespace="aura-forecasting"}[1h]) > 3
+            for: 0m
+            labels:
+              severity: warning
+            annotations:
+              summary: "AuraForecasting pod restarting frequently"
+              description: "Pod {{ $labels.pod }} has restarted more than 3 times in the last hour."
+
+      - name: monitoring-alerts
+        interval: 30s
+        rules:
+          # Prometheus down alert
+          - alert: PrometheusDown
+            expr: up{job="prometheus"} == 0
+            for: 1m
+            labels:
+              severity: critical
+            annotations:
+              summary: "Prometheus is down"
+              description: "Prometheus instance has been down for more than 1 minute."
+
+          # Prometheus target scrape failure
+          - alert: PrometheusTargetScrapeFail
+            expr: |
+              rate(prometheus_target_scrapes_exceeded_sample_limit_total[5m]) > 0
+            for: 5m
+            labels:
+              severity: warning
+            annotations:
+              summary: "Prometheus target scrape failed"
+              description: "Scrape target {{ $labels.instance }} has exceeded sample limit."

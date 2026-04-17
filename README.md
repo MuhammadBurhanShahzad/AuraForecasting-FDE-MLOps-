@@ -33,10 +33,13 @@ This project represents a comprehensive MLOps lifecycle, transforming a local AI
     - Successfully scaled the product using Minikube/Kubernetes.
     - Implemented microservices orchestration and service discovery.
 
-### 🚧 Future Phases (Roadmap)
-- **Phase 5: Monitoring Setup (Starting Tomorrow)**
-    - Implementing Prometheus and Grafana for real-time health observability of the AI forecasting engine.
-- **Phase 6: Testing & Demo**
+### ✅ Completed Phases (Continued)
+5.  **Phase 5: Monitoring Setup**
+    - Deployed Prometheus for metrics collection and alerting
+    - Deployed Grafana with pre-configured AuraForecasting dashboards
+    - Implemented alerting rules for pod health, CPU/memory usage, and restarts
+    - Full monitoring stack isolated in `monitoring/` namespace
+6.  **Phase 6: Testing & Demo**
     - Implementing end-to-end integration testing and user documentation.
 
 ---
@@ -44,10 +47,26 @@ This project represents a comprehensive MLOps lifecycle, transforming a local AI
 ## 🚀 Get Started in 60 Seconds
 AuraForecasting is fully containerized. No manual dependencies required.
 
+### Run the Application
+
 ```bash
 docker run -p 80:80 burhan107/aura-pro:latest
 ```
 Access the dashboard at: **[http://localhost](http://localhost)**
+
+### Deploy with Monitoring (Kubernetes)
+
+```bash
+# Deploy AuraForecasting to Kubernetes
+cd k8s && ./deploy.sh
+
+# Deploy Monitoring Stack (Prometheus + Grafana)
+cd ../monitoring && ./deploy-monitoring.sh
+```
+
+Access monitoring services:
+- **Prometheus**: `http://<minikube-ip>:30090`
+- **Grafana**: `http://<minikube-ip>:30030` (admin/admin123)
 
 ---
 
@@ -55,7 +74,8 @@ Access the dashboard at: **[http://localhost](http://localhost)**
 - **Frontend:** React, Tailwind CSS, Recharts
 - **Backend:** Python, Flask, Gunicorn
 - **AI/ML:** Meta Prophet, Pandas, NumPy
-- **Infrastructure:** Docker, Nginx, Supervisord
+- **Infrastructure:** Docker, Nginx, Supervisord, Kubernetes
+- **Monitoring:** Prometheus, Grafana
 - **Database:** SQLite (Embedded for portability)
 
 ---
