@@ -1,9 +1,13 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from forecast_logic import perform_forecast
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 CORS(app)
+
+metrics = PrometheusMetrics(app)
+metrics.info('ml_service_info', 'Aura ML Forecasting Service info', version='1.0.0')
 
 @app.route('/health', methods=['GET'])
 def health():

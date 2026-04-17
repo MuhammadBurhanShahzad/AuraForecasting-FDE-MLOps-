@@ -4,11 +4,15 @@ from models import db, HistoricalData, ForecastData
 from config import Config
 import requests
 from datetime import datetime
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 app.config.from_object(Config)
 CORS(app)
 db.init_app(app)
+
+metrics = PrometheusMetrics(app)
+metrics.info('app_info', 'Aura Forecasting Application info', version='1.0.0')
 
 @app.route('/health', methods=['GET'])
 def health():

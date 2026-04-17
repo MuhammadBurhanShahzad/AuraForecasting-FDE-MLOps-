@@ -4,3 +4,4 @@ pandas
 numpy
 flask-cors
 python-dotenv
+prometheus-flask-exporter
